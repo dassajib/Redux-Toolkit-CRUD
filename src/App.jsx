@@ -1,10 +1,8 @@
-function App() {
+import React from "react";
+import Index from "./index/Index";
 
-  return (
-    <>
-      Hello World
-    </>
-  )
-}
+const App = () => {
+  return <Index />;
+};
 
-export default App
+export default App;
