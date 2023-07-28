@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBook } from "../../features/books/booksSlice";
 import { Link } from "react-router-dom";
+import { Button, Container, Table } from "react-bootstrap";
 
 const BooksView = () => {
   // useSelector hook for access redux data
@@ -15,8 +16,8 @@ const BooksView = () => {
   };
 
   return (
-    <div>
-      <table>
+    <Container>
+      <Table className="mt-5" striped bordered hover>
         <thead>
           <tr>
             <th>Id</th>
@@ -36,16 +37,24 @@ const BooksView = () => {
                   <td>{author}</td>
                   <td>
                     <Link to="/edit-book" state={{ id, name, author }}>
-                      <button>Edit</button>
+                      <Button variant="info" className="m-1">
+                        Edit
+                      </Button>
                     </Link>
-                    <button onClick={() => onDelete(id)}>Delete</button>
+                    <Button
+                      onClick={() => onDelete(id)}
+                      className="m-1"
+                      variant="danger"
+                    >
+                      Delete
+                    </Button>
                   </td>
                 </tr>
               );
             })}
         </tbody>
-      </table>
-    </div>
+      </Table>
+    </Container>
   );
 };
 
